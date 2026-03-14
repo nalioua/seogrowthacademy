@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1-on-1 Consulting — SEO Growth Academy</title>
+  <meta name="description" content="Whether you are a complete beginner trying to understand SEO or an intermediate marketer looking to level up, our 1-on-1 consulting sessions give you direc"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--orange:#E84A0C;--orange-light:#FF6A30;--black:#0A0A0A;--dark:#111111;--dark2:#1A1A1A;--white:#FFFFFF;--grey:#999;--grey-light:#CCC;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,74,12,.15);}
+    .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-logo-icon{width:38px;height:38px;border-radius:8px;overflow:hidden;}
+    .nav-logo-icon img{width:38px;height:38px;object-fit:cover;border-radius:8px;}
+    .nav-logo-text strong{display:block;font-family:'Bebas Neue';font-size:18px;letter-spacing:2px;color:var(--white);}
+    .nav-logo-text span{font-family:'Barlow Condensed';font-size:10px;letter-spacing:4px;color:var(--grey);text-transform:uppercase;}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{font-family:'Barlow Condensed';font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey-light);text-decoration:none;transition:color .2s;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-cta{background:var(--orange)!important;color:var(--white)!important;padding:10px 24px;border-radius:4px;}
+    .hero{padding:140px 60px 80px;background:var(--dark);border-bottom:1px solid rgba(232,74,12,.15);position:relative;overflow:hidden;}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 60% 50%,rgba(232,74,12,.1) 0%,transparent 65%);}
+    .hero-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:60px;}
+    .hero-cat{font-family:'Barlow Condensed';font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+    .hero-cat::before{content:'';width:24px;height:1px;background:var(--orange);}
+    h1{font-family:'Bebas Neue';font-size:clamp(52px,7vw,80px);line-height:.95;margin-bottom:20px;}
+    .hero-desc{font-size:17px;line-height:1.8;color:var(--grey-light);max-width:560px;margin-bottom:32px;}
+    .hero-tag{background:rgba(232,74,12,.1);border:1px solid rgba(232,74,12,.3);color:var(--orange);padding:8px 20px;border-radius:100px;font-family:'Barlow Condensed';font-size:12px;letter-spacing:2px;text-transform:uppercase;display:inline-block;}
+    .hero-icon{font-size:100px;opacity:.8;}
+    .body{max-width:1000px;margin:0 auto;padding:80px 60px;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start;}
+    .body h2{font-family:'Bebas Neue';font-size:36px;border-left:3px solid var(--orange);padding-left:16px;margin-bottom:20px;}
+    .body p{font-size:15px;line-height:1.9;color:var(--grey-light);margin-bottom:16px;}
+    .body strong{color:var(--white);}
+    .includes-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;margin-bottom:32px;}
+    .includes-list li{display:flex;align-items:flex-start;gap:14px;font-size:15px;color:var(--grey-light);line-height:1.6;padding:16px;background:var(--dark);border:1px solid rgba(255,255,255,.06);border-radius:8px;transition:border-color .2s;}
+    .includes-list li:hover{border-color:rgba(232,74,12,.25);}
+    .includes-list li::before{content:'✓';color:var(--orange);font-family:'Barlow Condensed';font-weight:700;font-size:16px;flex-shrink:0;margin-top:1px;}
+    .form-box{background:var(--dark);border:1px solid rgba(232,74,12,.2);border-radius:16px;padding:40px;position:sticky;top:100px;}
+    .form-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent);border-radius:16px 16px 0 0;}
+    .form-box{position:relative;}
+    .form-price{font-family:'Bebas Neue';font-size:42px;color:var(--orange);line-height:1;margin-bottom:4px;}
+    .form-price-note{font-family:'Barlow Condensed';font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:24px;}
+    .form-title{font-family:'Bebas Neue';font-size:26px;margin-bottom:20px;}
+    .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px;}
+    .form-label{font-family:'Barlow Condensed';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);}
+    .form-input,.form-textarea,.form-select{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:var(--white);padding:12px 16px;font-family:'Barlow';font-size:14px;border-radius:6px;outline:none;transition:border-color .2s;width:100%;}
+    .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--orange);}
+    .form-input::placeholder,.form-textarea::placeholder{color:var(--grey);}
+    .form-select option{background:var(--dark);}
+    .form-textarea{min-height:100px;resize:vertical;}
+    .form-submit{background:var(--orange);color:var(--white);border:none;padding:16px;width:100%;font-family:'Barlow Condensed';font-size:13px;letter-spacing:3px;text-transform:uppercase;border-radius:6px;cursor:pointer;margin-top:8px;transition:background .2s,transform .2s;}
+    .form-submit:hover{background:var(--orange-light);transform:translateY(-2px);}
+    .form-note{font-size:12px;color:var(--grey);text-align:center;margin-top:12px;}
+    .other-services{background:var(--dark);border-top:1px solid rgba(255,255,255,.07);padding:60px;}
+    .other-inner{max-width:1000px;margin:0 auto;}
+    .other-title{font-family:'Bebas Neue';font-size:36px;margin-bottom:32px;}
+    .other-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .other-card{background:var(--black);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:24px;text-decoration:none;transition:border-color .2s,transform .2s;display:block;}
+    .other-card:hover{border-color:rgba(232,74,12,.3);transform:translateY(-3px);}
+    .other-card-icon{font-size:28px;margin-bottom:12px;}
+    .other-card-title{font-family:'Barlow Condensed';font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;}
+    .other-card-desc{font-size:13px;color:var(--grey);line-height:1.6;}
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.07);padding:32px 60px;display:flex;justify-content:space-between;align-items:center;}
+    footer p{font-size:13px;color:var(--grey);} footer span{color:var(--orange);}
+    @media(max-width:1024px){.hero-inner{grid-template-columns:1fr;}.hero-icon{display:none;}.body{grid-template-columns:1fr;}.form-box{position:static;}.other-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hero{padding:110px 20px 60px;}.body{padding:60px 20px;}.other-services{padding:40px 20px;}.other-grid{grid-template-columns:1fr;}footer{padding:24px 20px;flex-direction:column;gap:8px;text-align:center;}}
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon"><img src="data:image/png;base64,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" alt="SEO Growth Academy"/></div>
+    <div class="nav-logo-text"><strong>SEO GROWTH</strong><span>Academy</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="courses.html" style="color:var(--orange)">Video Courses</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get Started →</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-cat">Our Services — 03 / 04</div>
+      <h1>1-ON-1 CONSULTING</h1>
+      <p class="hero-desc">Personal SEO coaching sessions tailored to your business, your level, and your goals. Ask anything, get direct expert answers, and leave each session with a clear action plan.</p>
+      <span class="hero-tag">Coaching Sessions</span>
+    </div>
+    <div class="hero-icon">🎯</div>
+  </div>
+</div>
+
+<div class="body">
+  <div>
+    <h2>WHAT'S INCLUDED</h2>
+    <p>Whether you are a complete beginner trying to understand SEO or an intermediate marketer looking to level up, our 1-on-1 consulting sessions give you direct access to expert knowledge applied specifically to your business.</p>
+    <ul class="includes-list">
+      <li>60-minute or 90-minute sessions via video call</li><li>Tailored entirely to your business and current challenges</li><li>Live website review and real-time optimization tips</li><li>Keyword and content strategy for your specific niche</li><li>Q&A — ask anything and get straight, honest answers</li><li>Session recording provided so you can rewatch anytime</li><li>Follow-up action checklist sent after each session</li>
+    </ul>
+    <h2>HOW IT WORKS</h2>
+    <p>Fill in the contact form on this page. We will review your request and get back to you within <strong>24 business hours</strong> to discuss your project and answer any questions.</p>
+    <p>Every engagement starts with a <strong>free 30-minute discovery call</strong> so we can understand your business, your goals, and what it will take to get results.</p>
+    <p>No commitment required to start the conversation.</p>
+  </div>
+  <div>
+    <div class="form-box">
+      <form name="service-consulting" method="POST" netlify>
+      <div class="form-price">Custom Quote</div>
+      <div class="form-price-note">Per session or bundle packages · Reply within 24h</div>
+      <div class="form-title">REQUEST THIS SERVICE</div>
+      <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input" placeholder="John Smith"/></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" class="form-input" placeholder="john@mybusiness.com"/></div>
+      <div class="form-group"><label class="form-label">Your Website</label><input type="text" class="form-input" placeholder="https://yourstore.com"/></div>
+      <div class="form-group"><label class="form-label">Tell us about your project</label><textarea class="form-textarea" placeholder="Describe your business, current situation, and what you want to achieve..."></textarea></div>
+      <button type="submit" class="form-submit">Send My Request →</button>
+      </form>
+      <p class="form-note">We reply within 24h · Free discovery call included · No commitment</p>
+    </div>
+  </div>
+</div>
+
+<div class="other-services">
+  <div class="other-inner">
+    <div class="other-title">OTHER SERVICES</div>
+    <div class="other-grid">
+      <a href="service-seo-audit.html" class="other-card"><div class="other-card-icon">🔍</div><div class="other-card-title">Full SEO Audit</div><div class="other-card-desc">A complete analysis of your site with a clear action plan.</div></a>
+      <a href="service-seo-management.html" class="other-card"><div class="other-card-icon">📈</div><div class="other-card-title">Monthly SEO Management</div><div class="other-card-desc">We handle your SEO every month so you can focus on your business.</div></a>
+      <a href="service-consulting.html" class="other-card"><div class="other-card-icon">🎯</div><div class="other-card-title">1-on-1 Consulting</div><div class="other-card-desc">Personal coaching sessions tailored to your exact needs.</div></a>
+      <a href="service-content.html" class="other-card"><div class="other-card-icon">✍️</div><div class="other-card-title">Content & Blog Strategy</div><div class="other-card-desc">SEO-optimized content that ranks and drives revenue.</div></a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <span>SEO Growth Academy</span>. All rights reserved.</p>
+  <p style="font-family:'Barlow Condensed';letter-spacing:2px;font-size:12px;text-transform:uppercase;">Rank Smarter · <span>Grow Faster</span> · Sell More</p>
+</footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(10,10,10,.97)':'rgba(10,10,10,.85)';});</script>
+</body>
+</html>

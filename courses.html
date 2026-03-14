@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Courses — SEO Growth Academy</title>
+  <meta name="description" content="Learn SEO step by step with our video course series. Beginner to advanced programs for entrepreneurs and Shopify store owners."/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--orange:#E84A0C;--orange-light:#FF6A30;--black:#0A0A0A;--dark:#111111;--dark2:#1A1A1A;--white:#FFFFFF;--grey:#999999;--grey-light:#CCCCCC;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--black);color:var(--white);font-family:'Barlow',sans-serif;font-weight:300;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--black);}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(10,10,10,.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,74,12,.15);}
+    .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .nav-logo-icon{width:38px;height:38px;border-radius:8px;overflow:hidden;}
+    .nav-logo-icon img{width:38px;height:38px;object-fit:cover;border-radius:8px;}
+    .nav-logo-text strong{display:block;font-family:'Bebas Neue';font-size:18px;letter-spacing:2px;color:var(--white);}
+    .nav-logo-text span{font-family:'Barlow Condensed';font-size:10px;letter-spacing:4px;color:var(--grey);text-transform:uppercase;}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{font-family:'Barlow Condensed';font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey-light);text-decoration:none;transition:color .2s;}
+    .nav-links a:hover{color:var(--white);}
+    .nav-cta{background:var(--orange)!important;color:var(--white)!important;padding:10px 24px;border-radius:4px;}
+
+    /* HERO */
+    .page-hero{padding:140px 60px 80px;background:var(--dark);border-bottom:1px solid rgba(232,74,12,.15);position:relative;overflow:hidden;text-align:center;}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 50%,rgba(232,74,12,.09) 0%,transparent 65%);}
+    .page-hero-inner{position:relative;z-index:2;max-width:700px;margin:0 auto;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,74,12,.12);border:1px solid rgba(232,74,12,.3);padding:6px 18px;border-radius:100px;font-family:'Barlow Condensed';font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:28px;}
+    .hero-badge-dot{width:6px;height:6px;background:var(--orange);border-radius:50%;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+    .page-hero h1{font-family:'Bebas Neue';font-size:clamp(52px,8vw,90px);line-height:.95;margin-bottom:20px;}
+    .page-hero h1 span{color:var(--orange);}
+    .page-hero p{font-size:17px;line-height:1.8;color:var(--grey-light);max-width:520px;margin:0 auto;}
+
+    /* SERIES TABS */
+    .series-nav{background:var(--black);border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:72px;z-index:100;}
+    .series-nav-inner{display:flex;gap:0;max-width:1100px;margin:0 auto;padding:0 60px;overflow-x:auto;}
+    .series-tab{font-family:'Barlow Condensed';font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--grey);padding:20px 28px;border-bottom:2px solid transparent;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap;background:none;border-top:none;border-left:none;border-right:none;}
+    .series-tab:hover{color:var(--white);}
+    .series-tab.active{color:var(--orange);border-bottom-color:var(--orange);}
+
+    /* SERIES SECTIONS */
+    .series-section{display:none;padding:80px 60px;max-width:1100px;margin:0 auto;}
+    .series-section.active{display:block;}
+
+    /* SERIES HEADER */
+    .series-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:40px;margin-bottom:60px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);}
+    .series-label{font-family:'Barlow Condensed';font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+    .series-label::before{content:'';width:24px;height:1px;background:var(--orange);}
+    .series-title{font-family:'Bebas Neue';font-size:clamp(36px,5vw,60px);line-height:.95;margin-bottom:16px;}
+    .series-desc{font-size:15px;color:var(--grey-light);line-height:1.8;max-width:560px;}
+    .series-badge-free{background:rgba(0,200,100,.1);border:1px solid rgba(0,200,100,.3);color:#00C864;padding:8px 20px;border-radius:100px;font-family:'Barlow Condensed';font-size:12px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+    .series-badge-paid{background:rgba(232,74,12,.1);border:1px solid rgba(232,74,12,.3);color:var(--orange);padding:8px 20px;border-radius:100px;font-family:'Barlow Condensed';font-size:12px;letter-spacing:2px;text-transform:uppercase;white-space:nowrap;}
+    .series-stats{display:flex;gap:32px;margin-top:24px;flex-wrap:wrap;}
+    .series-stat-num{font-family:'Bebas Neue';font-size:28px;color:var(--orange);line-height:1;}
+    .series-stat-label{font-family:'Barlow Condensed';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-top:2px;}
+
+    /* MODULE */
+    .module{margin-bottom:48px;}
+    .module-title{font-family:'Barlow Condensed';font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--grey);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+    .module-title::after{content:'';flex:1;height:1px;background:rgba(255,255,255,.07);}
+    .videos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+    /* VIDEO CARD */
+    .video-card{background:var(--dark);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:transform .25s,border-color .25s;cursor:pointer;text-decoration:none;display:block;}
+    .video-card:hover{transform:translateY(-4px);border-color:rgba(232,74,12,.3);}
+    .video-thumb{height:160px;background:linear-gradient(135deg,var(--dark2),#1e1e1e);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .video-thumb::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,74,12,.15),transparent);}
+    .video-num{font-family:'Bebas Neue';font-size:72px;color:rgba(232,74,12,.12);position:absolute;bottom:-8px;right:10px;line-height:1;}
+    .play-btn{width:52px;height:52px;background:var(--orange);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;transition:transform .2s,background .2s;}
+    .video-card:hover .play-btn{transform:scale(1.1);background:var(--orange-light);}
+    .play-icon{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:16px solid white;margin-left:3px;}
+    .video-body{padding:18px 20px;}
+    .video-module-tag{font-family:'Barlow Condensed';font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:6px;}
+    .video-title{font-family:'Barlow Condensed';font-size:16px;font-weight:700;line-height:1.3;margin-bottom:8px;color:var(--white);}
+    .video-meta{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--grey);font-family:'Barlow Condensed';letter-spacing:1px;}
+    .video-duration{display:flex;align-items:center;gap:4px;}
+
+    /* LOCKED CARD */
+    .video-card.locked{opacity:.6;cursor:default;}
+    .video-card.locked:hover{transform:none;border-color:rgba(255,255,255,.06);}
+    .lock-icon{font-size:24px;position:relative;z-index:1;}
+
+    /* COMING SOON SERIES */
+    .coming-soon-series{text-align:center;padding:80px 40px;}
+    .cs-icon{font-size:72px;margin-bottom:24px;display:block;}
+    .cs-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(232,74,12,.12);border:1px solid rgba(232,74,12,.3);padding:6px 18px;border-radius:100px;font-family:'Barlow Condensed';font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:24px;}
+    .cs-title{font-family:'Bebas Neue';font-size:clamp(40px,6vw,64px);margin-bottom:16px;}
+    .cs-title span{color:var(--orange);}
+    .cs-desc{font-size:16px;color:var(--grey-light);line-height:1.8;max-width:480px;margin:0 auto 36px;}
+    .btn-primary{background:var(--orange);color:var(--white);padding:15px 36px;font-family:'Barlow Condensed';font-size:13px;letter-spacing:3px;text-transform:uppercase;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .2s;}
+    .btn-primary:hover{background:var(--orange-light);transform:translateY(-2px);}
+
+    /* FOOTER */
+    footer{background:var(--dark);border-top:1px solid rgba(255,255,255,.07);padding:32px 60px;display:flex;justify-content:space-between;align-items:center;}
+    footer p{font-size:13px;color:var(--grey);}
+    footer span{color:var(--orange);}
+
+    @media(max-width:1024px){.videos-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:768px){
+      nav{padding:0 20px;}.nav-links{display:none;}
+      .page-hero{padding:110px 20px 60px;}
+      .series-nav-inner{padding:0 20px;}
+      .series-section{padding:60px 20px;}
+      .series-header{grid-template-columns:1fr;}
+      .videos-grid{grid-template-columns:1fr;}
+      footer{padding:24px 20px;flex-direction:column;gap:8px;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon"><img src="data:image/png;base64,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" alt="SEO Growth Academy"/></div>
+    <div class="nav-logo-text"><strong>SEO GROWTH</strong><span>Academy</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#blog">Blog</a></li>
+    <li><a href="courses.html" style="color:var(--orange)">Video Courses</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get Started →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-badge"><div class="hero-badge-dot"></div>Learn at your own pace</div>
+    <h1>VIDEO<br><span>COURSES</span></h1>
+    <p>Step-by-step SEO programs for entrepreneurs. Start for free with our beginner series — advanced programs coming soon.</p>
+  </div>
+</div>
+
+<!-- SERIES TABS -->
+<div class="series-nav">
+  <div class="series-nav-inner">
+    <button class="series-tab active" onclick="showSeries('series1')">01 — Shopify SEO &amp; AI <span style="color:#00C864;margin-left:6px;font-size:10px">FREE</span></button>
+    <button class="series-tab" onclick="showSeries('series2')">02 — Advanced Growth SEO <span style="color:var(--orange);margin-left:6px;font-size:10px">SOON</span></button>
+    <button class="series-tab" onclick="showSeries('series3')">03 — E-Commerce SEO <span style="color:var(--orange);margin-left:6px;font-size:10px">SOON</span></button>
+    <button class="series-tab" onclick="showSeries('series4')">04 — Content Marketing <span style="color:var(--orange);margin-left:6px;font-size:10px">SOON</span></button>
+    <button class="series-tab" onclick="showSeries('series5')">05 — SEO &amp; AI <span style="color:var(--orange);margin-left:6px;font-size:10px">SOON</span></button>
+    <button class="series-tab" onclick="showSeries('series6')">06 — Local &amp; International SEO <span style="color:var(--orange);margin-left:6px;font-size:10px">SOON</span></button>
+  </div>
+</div>
+
+<!-- SERIES 1 — FREE -->
+<div class="series-section active" id="series1">
+  <div class="series-header">
+    <div>
+      <div class="series-label">Series 01</div>
+      <h2 class="series-title">SHOPIFY SEO IN<br>THE AGE OF AI</h2>
+      <p class="series-desc">Everything a beginner needs to rank their Shopify store on Google in 2025 — including how AI is changing SEO forever. 12 videos, completely free.</p>
+      <div class="series-stats">
+        <div><div class="series-stat-num">12</div><div class="series-stat-label">Videos</div></div>
+        <div><div class="series-stat-num">4</div><div class="series-stat-label">Modules</div></div>
+        <div><div class="series-stat-num">100%</div><div class="series-stat-label">Free</div></div>
+        <div><div class="series-stat-num">Beginner</div><div class="series-stat-label">Level</div></div>
+      </div>
+    </div>
+    <div><span class="series-badge-free">🆓 Completely Free</span></div>
+  </div>
+
+  <!-- MODULE 0 -->
+  <div class="module">
+    <div class="module-title">Module 0 — The Big Shift</div>
+    <div class="videos-grid">
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">01</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 0</div>
+          <div class="video-title">Is SEO Dead? How AI Changed Everything</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~12 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">02</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 0</div>
+          <div class="video-title">Zero-Click Searches: The New Reality</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~10 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">03</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 0</div>
+          <div class="video-title">GEO: Ranking in AI-Generated Answers</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~14 min</span><span>Free</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MODULE 1 -->
+  <div class="module">
+    <div class="module-title">Module 1 — Shopify SEO Foundations</div>
+    <div class="videos-grid">
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">04</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 1</div>
+          <div class="video-title">Keyword Research for Shopify Stores</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~18 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">05</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 1</div>
+          <div class="video-title">Site Structure That Google Loves</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~15 min</span><span>Free</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module">
+    <div class="module-title">Module 2 — On-Page Optimization</div>
+    <div class="videos-grid">
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">06</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 2</div>
+          <div class="video-title">Title Tags &amp; Meta Descriptions That Get Clicks</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~16 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">07</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 2</div>
+          <div class="video-title">Optimizing Product Pages for SEO &amp; Sales</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~20 min</span><span>Free</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module">
+    <div class="module-title">Module 3 — Content, Authority &amp; Results</div>
+    <div class="videos-grid">
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">08</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 3</div>
+          <div class="video-title">Blog Strategy + AI Content Workflows</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~22 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">09</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 3</div>
+          <div class="video-title">Technical SEO Essentials for Shopify</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~18 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">10</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 3</div>
+          <div class="video-title">Building Your First Backlinks</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~16 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">11</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 3</div>
+          <div class="video-title">Google Search Console: Read Your Data</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~20 min</span><span>Free</span></div>
+        </div>
+      </a>
+      <a href="https://youtube.com/@seogrowthacademy" target="_blank" class="video-card">
+        <div class="video-thumb">
+          <div class="play-btn"><div class="play-icon"></div></div>
+          <div class="video-num">12</div>
+        </div>
+        <div class="video-body">
+          <div class="video-module-tag">Module 3</div>
+          <div class="video-title">Your 90-Day SEO Action Plan</div>
+          <div class="video-meta"><span class="video-duration">⏱ ~25 min</span><span>Free</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- SERIES 2 — COMING SOON -->
+<div class="series-section" id="series2">
+  <div class="coming-soon-series">
+    <span class="cs-icon">⚡</span>
+    <div class="cs-badge"><div class="hero-badge-dot"></div>In Development</div>
+    <h2 class="cs-title">ADVANCED GROWTH SEO<br><span>IS COMING.</span></h2>
+    <p class="cs-desc">Advanced link building, programmatic SEO, content clustering at scale, and automation workflows. This paid series is currently being produced — join the waitlist to be notified first.</p>
+    <a href="index.html#contact" class="btn-primary">Join the Waitlist →</a>
+  </div>
+</div>
+
+<!-- SERIES 3 — COMING SOON -->
+<div class="series-section" id="series3">
+  <div class="coming-soon-series">
+    <span class="cs-icon">🛒</span>
+    <div class="cs-badge"><div class="hero-badge-dot"></div>In Development</div>
+    <h2 class="cs-title">E-COMMERCE SEO<br><span>IS COMING.</span></h2>
+    <p class="cs-desc">A complete video series dedicated to Shopify SEO — product pages, collections, schema markup, duplicate content, and driving organic revenue. Join the waitlist to be first in.</p>
+    <a href="index.html#contact" class="btn-primary">Join the Waitlist →</a>
+  </div>
+</div>
+
+
+<div class="series-section" id="series4">
+  <div class="coming-soon-series">
+    <span class="cs-icon">✍️</span>
+    <div class="cs-badge"><div class="hero-badge-dot"></div>In Development</div>
+    <h2 class="cs-title">CONTENT MARKETING<br><span>IS COMING.</span></h2>
+    <p class="cs-desc">Content clusters, pillar pages, editorial SEO, and AI-assisted writing workflows. Everything you need to create content that ranks and converts. Join the waitlist to be first in.</p>
+    <a href="index.html#contact" class="btn-primary">Join the Waitlist →</a>
+  </div>
+</div>
+
+<div class="series-section" id="series5">
+  <div class="coming-soon-series">
+    <span class="cs-icon">🤖</span>
+    <div class="cs-badge"><div class="hero-badge-dot"></div>In Development</div>
+    <h2 class="cs-title">SEO & AI<br><span>IS COMING.</span></h2>
+    <p class="cs-desc">Use ChatGPT and Claude to 10x your SEO output — keyword research, content production, GEO optimization, and ranking in AI-generated answers. Join the waitlist.</p>
+    <a href="index.html#contact" class="btn-primary">Join the Waitlist →</a>
+  </div>
+</div>
+
+<div class="series-section" id="series6">
+  <div class="coming-soon-series">
+    <span class="cs-icon">🌍</span>
+    <div class="cs-badge"><div class="hero-badge-dot"></div>In Development</div>
+    <h2 class="cs-title">LOCAL & INTERNATIONAL SEO<br><span>IS COMING.</span></h2>
+    <p class="cs-desc">Dominate local search and expand internationally with targeted multilingual SEO strategies built for growing businesses. Join the waitlist to be notified first.</p>
+    <a href="index.html#contact" class="btn-primary">Join the Waitlist →</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 <span>SEO Growth Academy</span>. All rights reserved.</p>
+  <p style="font-family:'Barlow Condensed';letter-spacing:2px;font-size:12px;text-transform:uppercase;">Rank Smarter · <span>Grow Faster</span> · Sell More</p>
+</footer>
+
+<script>
+  function showSeries(id){
+    document.querySelectorAll('.series-section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.series-tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.background=window.scrollY>50?'rgba(10,10,10,.97)':'rgba(10,10,10,.85)';});
+</script>
+</body>
+</html>
